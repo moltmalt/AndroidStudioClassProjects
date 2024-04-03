@@ -73,29 +73,28 @@ public class StackEvaluate {
 
     public static double bigEvaluate(String stringToEvaluate) {
 
-        numbers = new Stack<>(); //stack for numbers
+        numbers = new Stack<>(); // stack for numbers
         operations = new Stack<>();
 
         char[] toks = stringToEvaluate.toCharArray();
 
         for (int i = 0; i < toks.length; i++) {
-            if ((toks[i] >= '0' && toks[i] <= '9') || toks[i] == '.' ) {
+            if ((toks[i] >= '0' && toks[i] <= '9') || toks[i] == '.') { // include '.' for decimal points
                 StringBuilder sb = new StringBuilder();
-                while (i < toks.length && toks[i] >= '0' && toks[i] <= '9' || toks[i] == '.') {
+                while (i < toks.length && ((toks[i] >= '0' && toks[i] <= '9') || toks[i] == '.')) {
                     sb.append(toks[i++]);
                 }
-                Log.d(TAG, "bigEvaluate: "+sb.toString());
                 numbers.push(Double.parseDouble(sb.toString()));
                 i--;
-            }else if (toks[i] == '('){
-                operations.push(toks[i]); //REMEMBER push sa operations stack not sa numbers
-            }else if (toks[i] == ')') {
-                while (operations.peek() != '('){
+            } else if (toks[i] == '(') {
+                operations.push(toks[i]); // REMEMBER push to operations stack, not to numbers
+            } else if (toks[i] == ')') {
+                while (operations.peek() != '(') {
                     numbers.push(smolEvaluate(operations.pop(), numbers.pop(), numbers.pop()));
                 }
-                operations.pop();
-            }else if (toks[i] == '+' || toks[i] == '-' || toks[i] == '*' || toks[i] == '/') {
-                if (i < toks.length - 1 && (toks[i + 1] >= '0' && toks[i + 1] <= '9') || toks[i + 1] == '.') {
+                operations.pop(); // remove the '('
+            } else if (toks[i] == '+' || toks[i] == '-' || toks[i] == '*' || toks[i] == '/') {
+                if (i < toks.length - 1 && ((toks[i + 1] >= '0' && toks[i + 1] <= '9') || toks[i + 1] == '.')) {
                     // Check if the next character is a digit, indicating a complete operation
                     while (!operations.empty() && precedenceChecker(toks[i], operations.peek())) {
                         numbers.push(smolEvaluate(operations.pop(), numbers.pop(), numbers.pop()));
