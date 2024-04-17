@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button btn1, btn2, btn3, btn4, btn5;
+    Button btn1, btn2, btn3, btn4, btn5, btn6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +54,16 @@ public class MainActivity extends AppCompatActivity {
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(MainActivity.this, PrefinalActivity.class); //Intent is the gateway from one activity to another; has the capability top hold data from one activity and pass it to another
+                Intent intent1 = new Intent(MainActivity.this, Connect3.class); //Intent is the gateway from one activity to another; has the capability top hold data from one activity and pass it to another
+                startActivity(intent1);
+            }
+        });
+
+        btn6 = (Button) findViewById(R.id.button6);
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(MainActivity.this, PassingIntentsExercise.class); //Intent is the gateway from one activity to another; has the capability top hold data from one activity and pass it to another
                 startActivity(intent1);
             }
         });

@@ -4,7 +4,10 @@
     <string name="btn2">Button Activity</string>
     <string name="btn3">Calculator</string>
     <string name="btn4">Midterm Exam</string>
-    <string name="btnfive">Prefinal Activity</string>
+    <string name="btnfive">Connect3</string>
+    <string name="btnsix">Passing Intents</string>
+    <string name="btnseven">Fragments</string>
+    <string name="btneight">Menu</string>
     <string name="igStory1">Your Story</string>
     <string name="igStory2">Sans</string>
     <string name="igStory3">Papyrus</string>
@@ -50,4 +53,23 @@
     <string name="startButton">Color Match Game</string>
     <string name="restartButton">Restart</string>
     <string name="randomizeButton">Randomize</string>
+    <string name="header">Student Registration Form</string>
+    <string name="header2">Student Profile</string>
+    <string name="nameHeader">Complete Name</string>
+    <string name="firstNamePlaceholder">First Name</string>
+    <string name="lastNamePlaceHolder">Last Name</string>
+    <string name="genderHeader">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="others">Others</string>
+    <string name="birthDate">Birth Date</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="email">Email Address</string>
+    <string name="studentID">Student ID</string>
+    <string name="program">Program</string>
+    <string name="yrlevel">Year Level</string>
+    <string name="gwa">GWA</string>
+    <string name="units">Units Taking</string>
+    <string name="clearform">Clear</string>
+    <string name="submitform">Submit</string>
 </resources>
