@@ -72,4 +72,14 @@
     <string name="units">Units Taking</string>
     <string name="clearform">Clear</string>
     <string name="submitform">Submit</string>
+    <string name="change">Change</string>
+    <string name="reset">Reset</string>
+    <string name="exit">Exit</string>
+    <string name="back">Return</string>
+    <string name="hello">Hello World!</string>
+    <string name="changeRed">Change Button to Red</string>
+    <string name="changeTextRed">Change Text to Black</string>
+    <string name="changeSize">Change Angle</string>
+    <string name="changeText">Change Text</string>
+    <string name="changeVisibility">Change Visibility</string>
 </resources>

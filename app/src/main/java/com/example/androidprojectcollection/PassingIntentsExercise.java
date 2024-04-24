@@ -9,16 +9,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class PassingIntentsExercise extends AppCompatActivity {
 
     EditText etxtFname;
     EditText etxtLName;
     RadioGroup radGenders;
-    RadioButton [] rgGenders;
+
     RadioButton radMale;
     RadioButton radFemale;
     RadioButton radOthers;
+
+    RadioButton [] rgGenders;
     EditText etxtStudID;
     EditText etxtProgram;
     EditText etxtYrLevel;
@@ -65,51 +68,68 @@ public class PassingIntentsExercise extends AppCompatActivity {
          btnClearForm = findViewById(R.id.btnClearForm);
          btnSubmitForm = findViewById(R.id.btnSubmitForm);
 
+         Button btnGroups [] = {radMale, radFemale, radOthers};
         btnSubmitForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!etxtFname.getText().toString().equals(null) && !etxtLName.getText().toString().equals(null) && !etxtStudID.getText().toString().equals(null) && !etxtProgram.getText().toString().equals(null) &&
-                        !etxtYrLevel.getText().toString().equals(null) && !etxtBirthDate.getText().toString().equals(null) &&
-                        !etxtPhoneNumber.getText().toString().equals(null) && !etxtEmail.getText().toString().equals(null) &&
-                        !etxtUnits.getText().toString().equals(null) && !etxtGWA.getText().toString().equals(null)){
-
-                    if(radMale.isSelected()){
-                        gender = "Male";
-                    }else if(radFemale.isSelected()){
-                        gender ="Female";
-                    }else if(radOthers.isSelected()){
-                        gender ="Others";
-                    }else{
-                        gender ="Unspecified";
-                    }
-
-                    fName = etxtFname.getText().toString();
-                    lName = etxtLName.getText().toString();
-                    studID = etxtStudID.getText().toString();
-                    email = etxtEmail.getText().toString();
-                    program = etxtProgram.getText().toString();
-                    yrLevel = etxtProgram.getText().toString();
-                    bDate  = etxtBirthDate.getText().toString();
-                    phoneNumber = etxtPhoneNumber.getText().toString();;
-                    units = etxtUnits.getText().toString();
-                    GWA = etxtGWA.getText().toString();
-
-                    Intent intent = new Intent(PassingIntentsExercise.this, PassingIntentsExercise2.class);
-                    intent.putExtra("fName_key", fName);
-                    intent.putExtra("lName_key", lName);
-                    intent.putExtra("gender_key", gender);
-                    intent.putExtra("email_key", email);
-                    intent.putExtra("studID_key", studID);
-                    intent.putExtra("program_key", program);
-                    intent.putExtra("yrLevel_key", yrLevel);
-                    intent.putExtra("bDate_key", bDate);
-                    intent.putExtra("phoneNumber_key", phoneNumber);
-                    intent.putExtra("units_key", units);
-                    intent.putExtra("GWA_key", GWA);
-
-                    startActivity(intent);
-
+                if (etxtFname.getText().toString().equals("") || etxtLName.getText().toString().equals("") || etxtStudID.getText().toString().equals("") ||
+                        etxtProgram.getText().toString().equals("") || etxtYrLevel.getText().toString().equals("") || etxtBirthDate.getText().toString().equals("") ||
+                        etxtPhoneNumber.getText().toString().equals("") || etxtEmail.getText().toString().equals("") ||
+                        etxtUnits.getText().toString().equals("") || etxtGWA.getText().toString().equals("")) {
+                    Toast.makeText(PassingIntentsExercise.this, "Fill all fields", Toast.LENGTH_LONG).show();
+                    return;
                 }
+
+                if(radMale.isChecked()) gender = "Male";
+                if(radFemale.isChecked()) gender = "Female";
+                if(radOthers.isChecked()) gender = "Others";
+
+                fName = etxtFname.getText().toString();
+                lName = etxtLName.getText().toString();
+                studID = etxtStudID.getText().toString();
+                email = etxtEmail.getText().toString();
+                program = etxtProgram.getText().toString();
+                yrLevel = etxtYrLevel.getText().toString();
+                bDate = etxtBirthDate.getText().toString();
+                phoneNumber = etxtPhoneNumber.getText().toString();
+                units = etxtUnits.getText().toString();
+                GWA = etxtGWA.getText().toString();
+
+                Intent intent = new Intent(PassingIntentsExercise.this, PassingIntentsExercise2.class);
+                intent.putExtra("fName_key", fName);
+                intent.putExtra("lName_key", lName);
+                intent.putExtra("gender_key", gender);
+                intent.putExtra("email_key", email);
+                intent.putExtra("studID_key", studID);
+                intent.putExtra("program_key", program);
+                intent.putExtra("yrLevel_key", yrLevel);
+                intent.putExtra("bDate_key", bDate);
+                intent.putExtra("phoneNumber_key", phoneNumber);
+                intent.putExtra("units_key", units);
+                intent.putExtra("GWA_key", GWA);
+
+                startActivity(intent);
+
+            }
+        });
+
+        btnClearForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                etxtFname.setText("First Name");
+                etxtLName.setText("Last Name");
+                etxtStudID.setText("");
+                etxtProgram.setText("");
+                etxtYrLevel.setText("");
+                etxtBirthDate.setText("");
+                etxtPhoneNumber.setText("");
+                etxtEmail.setText("");
+                etxtUnits.setText("");
+                etxtGWA.setText("");
+
+                radMale.setSelected(false);
+                radFemale.setSelected(false);
+                radOthers.setSelected(false);
             }
         });
 

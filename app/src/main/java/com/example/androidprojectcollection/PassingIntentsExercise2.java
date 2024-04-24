@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class PassingIntentsExercise2 extends AppCompatActivity {
@@ -19,6 +21,8 @@ public class PassingIntentsExercise2 extends AppCompatActivity {
     TextView txtPI2YrLevel;
     TextView txtPI2Units;
     TextView txtPI2GWA;
+
+    Button btnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,8 @@ public class PassingIntentsExercise2 extends AppCompatActivity {
          txtPI2YrLevel = findViewById(R.id.txtPI2YrLevel);
          txtPI2Units = findViewById(R.id.txtPI2Units);
          txtPI2GWA = findViewById(R.id.txtPI2GWA);
+
+         btnReturn = findViewById(R.id.btnReturn);
 
         Intent intent = getIntent();
 
@@ -62,5 +68,13 @@ public class PassingIntentsExercise2 extends AppCompatActivity {
          txtPI2PhoneNum.setText(phoneNumber);
          txtPI2Units.setText(units);
          txtPI2GWA.setText(String.valueOf(GWA));
+
+         btnReturn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent intent = new Intent(PassingIntentsExercise2.this, PassingIntentsExercise.class);
+                 startActivity(intent);
+             }
+         });
     }
 }

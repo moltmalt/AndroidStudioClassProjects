@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button btn1, btn2, btn3, btn4, btn5, btn6;
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +64,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(MainActivity.this, PassingIntentsExercise.class); //Intent is the gateway from one activity to another; has the capability top hold data from one activity and pass it to another
+                startActivity(intent1);
+            }
+        });
+
+        btn8 = (Button) findViewById(R.id.button8);
+        btn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(MainActivity.this, MenuExercise.class); //Intent is the gateway from one activity to another; has the capability top hold data from one activity and pass it to another
                 startActivity(intent1);
             }
         });
